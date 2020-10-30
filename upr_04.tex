@@ -1,0 +1,316 @@
+%% LyX 2.3.5.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[bulgarian]{article}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\DeclareRobustCommand{\cyrtext}{%
+  \fontencoding{T2A}\selectfont\def\encodingdefault{T2A}}
+\DeclareRobustCommand{\textcyr}[1]{\leavevmode{\cyrtext #1}}
+
+
+\AtBeginDocument{
+  \def\labelitemiii{\(\circ\)}
+}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\title{Линейна алгебра, Информатика, Група 6\\
+Онлайн упражнение №1}
+\author{Александър Гудев}
+
+\maketitle
+\tableofcontents{}
+
+\section{Линейни пространства}
+
+${\displaystyle V}$ е \textbf{линейно пространство }над \textit{полето
+}${\displaystyle \mathbb{F}}$, ако са изпълнени:
+\begin{enumerate}
+\item Групови свойства: (${\displaystyle V}$ е комутативна (=абелева) група) 
+\begin{enumerate}
+\item Затвореност относно събиране: ${\displaystyle \forall v,w\in V:\mathbf{v+w\in V}}$ 
+\item Асоциативност на събирането: ${\displaystyle \forall u,v,w\in V:(u+v)+w=u+(v+w)}$ 
+\item Съществуване на неутрален елемент: ${\displaystyle \exists\ 0\in V:\forall u\in V:0+u=u+0=u}$ 
+
+Заб.: използваме нулата единствено като буква -- в общия случай тя
+не обозначава числовата нула, позната от училище. С 0 отбелязваме
+също и нулевия вектор $(0,\dots,0)$, например, като от контекста
+се разбира кой символ \quotedblbase 0`` какво бележи.
+\item Обратимост на всеки елемент: ${\displaystyle \forall u\in V:\exists\ (-u)\in V:u+(-u)=0}$ 
+\item Комутативност на събирането: ${\displaystyle \forall u,v\in V:u+v=v+u}$
+(група с това свойство се нарича \emph{абелева}) 
+\begin{itemize}
+\item Пример за некомутативна операция - композиция на непрекъснати функции
+(внимание - те не образуват група!):
+\[
+{\displaystyle sin(2x)\neq2sin(x)}
+\]
+\end{itemize}
+\end{enumerate}
+\item Свойства, свързващи групата и скаларното умножение 
+\begin{enumerate}
+\item Затвореност относно умножение със скалар: ${\displaystyle \forall v\in V,\lambda\in F:\mathbf{\lambda v\in V}}$ 
+\item Асоциативност: ${\displaystyle \forall\lambda,\mu\in F,v\in V:\lambda(\mu\ v)=(\lambda\mu)v}$ 
+\item Неутралност на умножението с единица: ${\displaystyle \forall v\in V:1_{F}\ v=v}$ 
+\item Дистрибутивни закони (разкриване на скоби). Нека ${\displaystyle \lambda,\mu\in F,u,v\in V}$,
+тогава: 
+\begin{enumerate}
+\item ${\displaystyle (\lambda+\mu)v=\lambda v+\mu v}$ 
+\item ${\displaystyle \lambda(u+v)=\lambda u+\lambda v}$ 
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+
+\section{Примери}
+
+Проверете, че дефиницията за ЛП е изпълнена за примерите по-долу:
+\begin{itemize}
+\item вектори в равнината, пространството, в 4D, ... -- наредени n-орки:
+\[
+\left\{ (a_{1},\dotsc,a_{n})\in\mathbb{F}^{n}\right\} 
+\]
+\item полиноми (с числови (засега) коефициенти): 
+\[
+\left\{ a_{0}+a_{1}x+\dotsc+a_{n}x^{n}\ |\ a_{i}\in\mathbb{F},n\in\mathbb{N}\right\} 
+\]
+
+\begin{itemize}
+\item Също, полиноми от степен ${\displaystyle \leqslant n}$ за някое фиксирано
+${\displaystyle n}$: $\mathbb{F}^{\le n}[x]$. A полиномите от степен
+\emph{точно} $n$?
+\begin{itemize}
+\item $\mathbb{F}^{\le3}[x]=\{ax^{3}+bx^{2}+cx+d|a,b,c,d\in\mathbb{F}\}$\\
+$(x^{3}+2x)+(-x^{3}-7)=2x-7$
+\end{itemize}
+\end{itemize}
+\item всички реални функции в даден интервал: ${\displaystyle \left\{ f:[a,b]\rightarrow\mathbb{R}\right\} }$
+\begin{itemize}
+\item $\underbrace{(f+g)}_{\text{събиране на \textbf{функции}}}(x)=\underbrace{f(x)+g(x)}_{\text{събиране на \textbf{числа}}}$
+\item $\underbrace{(\lambda\cdot f)}_{\text{умножение на функция със скалар}}(x)=\text{\ensuremath{\underbrace{\lambda\cdot f(x)}_{\text{умножение на \textbf{числа}}}}}$
+\item $(-f)(x)=-\underbrace{f(x)}_{\text{\ensuremath{\mathbb{R}}}}$
+\end{itemize}
+\item всички непрекъснати функции в даден интервал
+\item всички безкрайни числови редици: $\{(a_{1},a_{2},a_{3},\,\dots\,,a_{n},\,\dots\,)\,|\,a_{i}\in\mathbb{R}\forall i\}$
+\end{itemize}
+
+\section{Подпространства}
+\begin{itemize}
+\item Нека $V$ е линейно пространство. Ще казваме, че $W$ е подпространство
+на $V$, ако:
+\begin{enumerate}
+\item $W\subseteq V$
+\item $W$ е затворено относно събиране на вектори 
+\item $W$ е затворено относно умножение със скалар.
+\end{enumerate}
+\item Казахме, че $\mathbb{F}^{\le2}[x]$ и $\mathbb{F}^{\le5}[x]$ са пространства.
+Вярно ли е, че ${\mathbb{F}^{\le2}[x]\le\mathbb{F}^{\le3}[x]}$?
+\begin{itemize}
+\item Зависи как дефинираме строго $\mathbb{F}^{\le n}[x]$. Ако разглеждаме
+полиномите като наредени $n$-орки, вж. примера по-долу с $\mathbb{R}^{2}\text{ и \ensuremath{\mathbb{R}^{3}}}.$Ако
+ги дефинираме като функции над множеството $\mathbb{F}$, тогава да.
+\end{itemize}
+\end{itemize}
+\begin{quotation}
+{\Large{}Декартово произведение} (напомняне) 
+
+Ако A и B са множества, то под ${\displaystyle A\times B}$ разбираме
+множеството от всички наредени двойки:${\displaystyle \{\,(a,b)\,|\,a\in A,b\in B\}}$ 
+\end{quotation}
+\begin{itemize}
+\item Казахме също, че $\mathbb{R}^{3}$- тримерното пространство, и $\mathbb{R}^{2}$-
+равнината -- са линейни пространства.
+\begin{itemize}
+\item Вярно ли е, че $\mathbb{R}^{2}\le\mathbb{R}^{3}$?
+\begin{itemize}
+\item $R^{2}=\{(a,b)\;|\;a,b\in R\}$
+\item $R^{3}=\{(a,b,c)\;|\;a,b,c\in R\}$
+\item $A\subseteq B\Leftrightarrow\forall a\in A:a\in B$
+\item Внимание!$R^{2}\not\subseteq R^{3}$, следователно и $\mathbb{R}^{2}\not\le\mathbb{R}^{3}$
+\begin{itemize}
+\item Наредените двойки \textbf{не са }наредени тройки. 
+\end{itemize}
+\end{itemize}
+\item Вярно ли е, че $W=\{(x,0,z)\,|\,x,y\in\mathbb{R}\}$ е подпространство
+на $\mathbb{R}^{3}$?
+\begin{itemize}
+\item $W\subseteq\mathbb{R}^{3}$
+\item $(x,0,z)+(a,0,b)=(x+a,0+0,z+b)\boldsymbol{\in W},\;\boldsymbol{\forall}x,z,a,b\in\mathbb{R}$
+\item $\lambda(x,0,z)=(\lambda x,0,\lambda z)\boldsymbol{\in W},\;\boldsymbol{\forall}x,z,\lambda\in\mathbb{R}$
+\end{itemize}
+\end{itemize}
+\item $V=\{f:\text{\ensuremath{\mathbb{R\to\mathbb{R}}}}\,|\,f\text{ е непрекъсната}\}$
+\begin{itemize}
+\item $W=\{f:\mathbb{R\to R}\,|\,f(53)=0\text{ и }f\text{ е непрекъсната}\}$
+подпространство ли е на $V$?
+\begin{itemize}
+\item $W\subseteq V$- изпълнено!
+\item $f,g\in W,f+g\in W\Leftrightarrow(f+g)(53)=0\Leftrightarrow f(53)+g(53)=0\Leftrightarrow0+0=0$
+\item $\lambda\in\mathbb{R},f\in W,\lambda f\in W\Leftrightarrow(\lambda f)(53)=0\Leftrightarrow\lambda f(53)=0\Leftrightarrow\lambda0=0\Leftrightarrow0=0$
+\end{itemize}
+\item Ами $W'=\{f:\mathbb{R\to R}\,|\,f(53)=2\text{ и f е непрекъсната}\}$?
+\begin{itemize}
+\item $W'\subseteq V$- изпълнено!
+\item $f,g\in W',f+g\in W'\Leftrightarrow(f+g)(53)=2\Leftrightarrow f(53)+g(53)=2\Leftrightarrow2+2=2$
+- не е изпълнено!
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\section{Линейна обвивка}
+
+Знаем какво са подпространства - а как можем да си ги създаваме сами?
+\begin{itemize}
+\item Разглеждаме ${\displaystyle V_{2}=\mathbb{R}^{2}}\text{ и }V_{3}=\mathbb{R}^{3}$
+(над полето ${\displaystyle \mathbb{R}}$): 
+\begin{itemize}
+\item Ако $W\le V_{2}$ е подпространство и $(1,2)\in W$, какво най-малко
+още съдържа $W$? \textbf{Затвореност!}
+\begin{itemize}
+\item $\{\lambda(1,2)\,|\,\lambda\in\mathbb{R}\}\subseteq W$
+\end{itemize}
+\item Ако $W\le V_{3}$ е подпространство и $(0,1,0),(2,0,-1)\in W$, какво
+най-малко още съдържа $W$?
+\begin{itemize}
+\item $(0,1,0)+(2,0,-1)=(2,1,-1)\in W$
+\item $W$със сигурност съдържа равнината, определена от точките $(0,0,0),(0,1,0),(2,0,-1)$
+\end{itemize}
+\end{itemize}
+\item Сега нека $V=\mathbb{F}[x]$ е пространството от полиномите с коефициенти
+от $\mathbb{F}$ (да речем, $\mathbb{R}\text{ или }\mathbb{Q}$).
+\begin{itemize}
+\item Ако $W$е подпространство, съдържащо $3x^{2}$ и $-7x^{7}$, какво
+най-малко още съдържа $W$?
+\begin{itemize}
+\item $\lambda3x^{2},\mu(-7x^{7})\in W$, за всички $\lambda\text{ и }\mu\in\mathbb{F}$
+\item $\lambda x^{2}+\mu x^{7}\in W$, за всички $\lambda\text{ и }\mu\in\mathbb{F}$
+\end{itemize}
+\end{itemize}
+\item Ако $V$е пространство над полето$\mathbb{F}$ и \textbf{$\{a_{i}\}_{i=1}^{n}\text{\ensuremath{\subseteq V}}$
+}са вектори от него, как да дефинираме \quotedblbase най-малкото``
+подпространство, което ги съдържа?
+\begin{itemize}
+\item $l(\{a_{i}\}):=\{\sum_{i=1}^{n}\lambda_{i}a_{i}\,|\,\lambda_{i}\in\mathbb{F}\;\forall i\in\{1,\dots,n\}\}$
+\end{itemize}
+\item Какво е $l(a_{1},a_{2},a_{3})$, ако $a_{1}=(0,1,0);\;a_{2}=(0,-\sqrt{10},0),a_{3}=(7,0,0)$?
+
+\begin{align*}
+l(a_{1},a_{2},a_{3}) & =\{\lambda_{1}(0,1,0)+\lambda_{2}(0,-\sqrt{10},0)+\lambda_{3}(7,0,0)\,|\,\lambda_{i}\in\mathbb{R}\}\\
+ & =\{(0,a,0)+(0,b(-\sqrt{10}),0)+(7c,0,0)|a,b,c\in\mathbb{R}\}\\
+ & =\{(a,b,0)\;|\;a,b\in\mathbb{R}\}
+\end{align*}
+
+\begin{itemize}
+\item Равнината $Oxy$ в тримерното пространство!
+\item Вярно ли е, че $l(a_{1},a_{2},a_{3})=l(a_{1},a_{3})$? С най-малко
+колко вектора можем да \quotedblbase опишем`` това подпространство?
+\end{itemize}
+\end{itemize}
+
+\section{Линейна независимост на вектори }
+\begin{itemize}
+\item Казваме, че векторите ${\displaystyle \{a_{i}\}_{i=1}^{n}}$ са\textbf{
+линейнонезависими} (ЛНЗ), ако за всеки избор на коефициенти ${\displaystyle \{\lambda_{i}\}_{i=1}^{n}}$
+е изпълнено: 
+\[
+\sum\limits _{i=1}^{n}\lambda_{i}a_{i}=0\rightarrow\forall i:\lambda_{i}=0
+\]
+Тоест, ако единственият начин да получим ${\displaystyle 0}$, събирайки
+тези вектори, умножени с число, е да умножим всичките с 0.\\
+Или, ако не можем да изразим никой от векторите като линейна комбинация
+на останалите.
+\begin{itemize}
+\item ако можехме, щеше поне един от коефициентите в линейната комбинация
+да е ненулев, за да го прехвърлим от другата страна на равенството.
+\end{itemize}
+\end{itemize}
+\begin{enumerate}
+\item Докажете, че следните вектори от $\mathbb{F}^{4}$ са ЛНЗ:
+\begin{itemize}
+\item $a=(-1,2,3,-2);b=(2,1,-4,-3);c=(1,3,-2,-3)$
+
+Взимаме дефиницията за линейна независимост: $\sum\limits _{i=1}^{n}\lambda_{i}a_{i}=0\rightarrow\forall i:\lambda_{i}=0$,
+и я прилагаме директно върху условието:
+\[
+\lambda_{1}a+\lambda_{2}b+\lambda_{3}c=0\Longleftrightarrow
+\]
+\[
+\lambda_{1}(-1,2,3,-2)+\lambda_{2}(2,1,-4,-3)+\lambda_{3}(1,3,-2,-3)=0\Longleftrightarrow
+\]
+\[
+-1\lambda_{1},2\lambda_{1},3\lambda_{1},-2\lambda_{1})+(2\lambda_{2},1\lambda_{2},-4\lambda_{2},-3\lambda_{2})+(1\lambda_{3},3\lambda_{3},-2\lambda_{3},-3\lambda_{3}=0\Longleftrightarrow
+\]
+\[
+-1\lambda_{1}+2\lambda_{2}+1\lambda_{3},2\lambda_{2}+1\lambda_{1}+3\lambda_{3},-2\lambda_{3},-4\lambda_{2}+3\lambda_{1},-2\lambda_{1}-3\lambda_{2}-3\lambda_{3}=0\Longleftrightarrow
+\]
+\[
+-1\lambda_{1}+2\lambda_{2}+1\lambda_{3}=0;2\lambda_{2}+1\lambda_{1}+3\lambda_{3}=0;-2\lambda_{3},-4\lambda_{2}+3\lambda_{1}=0;-2\lambda_{1}-3\lambda_{2}-3\lambda_{3}=0
+\]
+
+Получената (хомогенна) система решаваме, както си знаем:
+\[
+\left(\begin{array}{ccc}
+-1 & 2 & 1\\
+2 & 1 & 3\\
+-2 & -4 & 3\\
+-2 & -3 & -3
+\end{array}\right)\to\left(\begin{array}{ccc}
+-1 & 2 & 1\\
+0 & 5 & 5\\
+0 & -6 & 1\\
+0 & 7 & 5
+\end{array}\right)\to\left(\begin{array}{ccc}
+-1 & 2 & 1\\
+0 & 1 & 1\\
+0 & 1 & 0\\
+0 & 1 & 0
+\end{array}\right)\to\left(\begin{array}{ccc}
+1 & 0 & 0\\
+0 & 0 & 1\\
+0 & 1 & 0
+\end{array}\right)
+\]
+И резултатът е $1\lambda_{1}=0,\lambda_{3}=0,\lambda_{2}=0\Longleftrightarrow\lambda_{i}=0\;\forall i\in\{1,2,3\}$,
+тоест $a,b,c$ са ЛНЗ.
+
+\bigskip{}
+\emph{Следващите два примера проверете }\emph{\uline{сами}}\emph{!}
+\item $a=(1,-1,2,3);b=(2,-2,1,1)$
+\item $a=(1,2,-1,3);b=(-1,-2,1,1)$
+\end{itemize}
+\item Проверете, че $a,b,c$ са ЛНЗ вектори от $\mathbb{F}^{3}:$
+\begin{itemize}
+\item $a=(1,1,1),\;b=(1,1,2),\;c=(1,2,3)$?
+\begin{itemize}
+\item Вярно ли е, че $\mathbb{F}^{3}=l(a,b,c)$?\\
+Три вектора -- в пространството $\mathbb{F\times\mathbb{F\times F}}$!\\
+Такива вектори, които са едновременно ЛНЗ и тяхната обвивка е цялото
+разглеждано пространство, наричаме \textbf{\emph{базис}}\emph{ }на
+пространството.
+\item Училищен базис в 3D: $(1,0,0);\;(0,1,0);\;(0,0,1)$
+\item Какво означава $\mathbb{F}^{3}=l(a,b,c)$? Че всеки вектор $v\in\mathbb{F}$може
+да се представи като комбинация на $a,b,c$!
+\end{itemize}
+\end{itemize}
+\item Докажете, че $a,b,c$ образуват базис на $\mathbb{F}^{3}$, и намерете
+координатите на вектора $v=(2,2,2)$ в този базис:
+\begin{itemize}
+\item $a=(1,1,1),\;b=(1,1,2),\;c=(1,2,3)$
+\item $a=(2,2,-1);\;b=(2,-1,2);\;c=(-1,2,2)$
+\item $a=(1,2,3);\;b=(2,5,7);\;c=(3,7,11)$
+\end{itemize}
+\end{enumerate}
+
+\end{document}
